@@ -1,10 +1,55 @@
-# “Tomato-Village”: A dataset for end-to-end Tomato disease detection in a real-world environment
+# Plant Disease Detection Models using VGG16
 
-**Abstract:**
-Tomato is one of the most extensively grown vegetables in any country, and their diseases can significantly affect yield and quality. Accurate and early detection of tomato diseases is crucial for reducing losses and improving crop management. Current Deep Learning and CNN research have resulted in the availability of multiple CNN designs, making automated plant disease identification viable rather than traditional visual inspection-based disease detection. When using Deep Learning Methods, the dataset serves one of the most crucial roles in disease prediction. PlantVillage is the most widely used publicly available dataset for Tomato Disease detection, but it was created in a lab/controlled environment, and models trained on it do not perform well on real-world images. Some natural or real-world datasets are available, but they are private and not publicly available. Also, when attempting to predict tomato diseases on the field in the Jodhpur and Jaipur districts of Rajasthan, India, we found that the majority of diseases are Leaf Miner, spotted wilt virus, and Nutrition deficiency diseases, but there are no public datasets containing such categories. To overcome these challenges, we propose the creation of a new dataset called "Tomato-Village" with three variants: a) Multiclass tomato disease classification, b) Multilabel tomato disease classification and c) Object detection based tomato disease detection. As per our best knowledge, “Tomato-Village” will be the first such dataset to be available publicly. Further, we have applied the various CNN architectures/models on this dataset, and baseline results are drawn.
+## Overview
+This repository contains two models for the detection of plant diseases using deep learning techniques, specifically leveraging the VGG16 architecture. The dataset used for training the models is the **Tomato-Village** dataset, which can be found on Kaggle. The dataset is focused on plant disease classification, and in this project, the **Variant-a (Multiclass classification)** subdirectory is used to train the models.
 
-# Cite the article
-Gehlot, M., Saxena, R.K. & Gandhi, G.C. “Tomato-Village”: a dataset for end-to-end tomato disease detection in a real-world environment. Multimedia Systems (2023). DOI : https://doi.org/10.1007/s00530-023-01158-y
+- [Tomato-Village dataset on Kaggle](https://www.kaggle.com/datasets/puneet6060/intel-image-classification)
 
-**Article Link :**
-https://link.springer.com/article/10.1007/s00530-023-01158-y
+## Models
+
+### 1. **Model 1: `model.ipynb` (VGG16-based model for Multiclass Classification)**
+This model is based on the VGG16 architecture, which is fine-tuned to classify plant diseases into multiple categories. The model includes several pre-processing techniques and data augmentations, such as image rotation, zoom, width, and height shifts to enhance training. A VGG16 model with a custom classifier on top was trained, and the first 15 layers of VGG16 were frozen to retain the learned features, with the remaining layers being trainable for fine-tuning.
+
+- **Accuracy:** 62%
+
+#### Description:
+The model was trained using the **Variant-a (Multiclass classification)** subdirectory of the Tomato-Village dataset. It aims to detect various plant diseases using images. The model performed moderately well with an accuracy of 62% during evaluation.
+
+---
+
+### 2. **Model 2: `model2.ipynb` (Transfer Learning-based Model using VGG16)**
+This model uses a transfer learning approach, starting with the pre-trained VGG16 model (trained on ImageNet) and adding custom layers for the disease classification task. The base VGG16 model's layers are frozen, and a new set of layers is added on top for multiclass classification. The model was trained on a dataset containing labeled plant disease images and was evaluated using both training and validation sets.
+
+- **Accuracy:** 82%
+
+#### Description:
+Model 2 utilizes transfer learning by fine-tuning the VGG16 model to detect plant diseases from images. The custom layers are designed to predict multiple classes (disease categories) based on the extracted features from the pre-trained VGG16 model. This method significantly outperformed the first model, achieving an accuracy of 82%, making it better suited for the plant disease detection task.
+
+---
+
+## Dataset
+The dataset used for training the models is the **Tomato-Village dataset** from Kaggle. It consists of various categories of tomato plant diseases. For this project, only the **Variant-a (Multiclass classification)** subdirectory was used.
+
+## Modules Used
+
+- **NumPy**: Used for numerical operations and array manipulations.
+- **Pandas**: Used for data handling and manipulation.
+- **Matplotlib**: Used for plotting and visualizing training results such as accuracy and loss graphs.
+- **Seaborn**: Used for data visualization (especially for the visualizations of confusion matrix and data distribution).
+- **TensorFlow**: Deep learning framework used for creating, training, and evaluating neural networks.
+  - **Keras** (part of TensorFlow): Used to implement the VGG16 architecture, transfer learning, data augmentation, and training pipelines.
+  - **VGG16**: Pre-trained convolutional neural network used as the base model for transfer learning.
+- **OpenCV**: Optional, for image pre-processing tasks.
+- **OS**: For handling file paths and directories.
+- **tf.keras.callbacks.ModelCheckpoint**: Used to save the best model during training.
+
+## Results Comparison
+
+- **Model 1 (VGG16-based model)** achieved an accuracy of 62%.
+- **Model 2 (Transfer learning-based VGG16)** achieved an accuracy of 82%.
+
+Model 2 provides better results and is more suitable for this dataset due to the benefits of transfer learning. The pre-trained VGG16 model allows the network to leverage previously learned features, resulting in improved performance for the plant disease classification task.
+
+## Conclusion
+The **Model 2** is the better-performing model, and it is recommended for use in real-world applications based on its higher accuracy of 82%. Model 1 can still serve as a baseline but does not perform as well as Model 2 on this dataset.
+
