@@ -46,10 +46,10 @@ The dataset used for training the models is the **Tomato-Village dataset** from 
 ## Results Comparison
 
 - **Model 1 (VGG16-based model)** achieved an accuracy of 62%.
-- **Model 2 (Transfer learning-based VGG16)** achieved an accuracy of 82%.
+- **Model 2 (Transfer learning-based VGG16)** achieved an accuracy of 84%.
 
 Model 2 provides better results and is more suitable for this dataset due to the benefits of transfer learning. The pre-trained VGG16 model allows the network to leverage previously learned features, resulting in improved performance for the plant disease classification task.
 
 ## Conclusion
-The **Model 2** is the better-performing model, and it is recommended for use in real-world applications based on its higher accuracy of 82%. Model 1 can still serve as a baseline but does not perform as well as Model 2 on this dataset.
+The **Model 2** is the better-performing model, and it is recommended for use in real-world applications based on its higher accuracy of 82% (Can be increased if trained for more epochs [around 15-20]). Model 1 can still serve as a baseline but does not perform as well as Model 2 on this dataset.
 
