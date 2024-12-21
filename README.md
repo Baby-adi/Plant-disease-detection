@@ -20,10 +20,10 @@ The model was trained using the **Variant-a (Multiclass classification)** subdir
 ### 2. **Model 2: `model2.ipynb` (Transfer Learning-based Model using VGG16)**
 This model uses a transfer learning approach, starting with the pre-trained VGG16 model (trained on ImageNet) and adding custom layers for the disease classification task. The base VGG16 model's layers are frozen, and a new set of layers is added on top for multiclass classification. The model was trained on a dataset containing labeled plant disease images and was evaluated using both training and validation sets.
 
-- **Accuracy:** 84%
+- **Accuracy:** 86%
 
 #### Description:
-Model 2 utilizes transfer learning by fine-tuning the VGG16 model to detect plant diseases from images. The custom layers are designed to predict multiple classes (disease categories) based on the extracted features from the pre-trained VGG16 model. This method significantly outperformed the first model, achieving an accuracy of 84%, making it better suited for the plant disease detection task.
+Model 2 utilizes transfer learning by fine-tuning the VGG16 model to detect plant diseases from images. The custom layers are designed to predict multiple classes (disease categories) based on the extracted features from the pre-trained VGG16 model. This method significantly outperformed the first model, achieving an accuracy of 86%, making it better suited for the plant disease detection task.
 
 ---
 
@@ -46,10 +46,10 @@ The dataset used for training the models is the **Tomato-Village dataset** from 
 ## Results Comparison
 
 - **Model 1 (VGG16-based model)** achieved an accuracy of 62%.
-- **Model 2 (Transfer learning-based VGG16)** achieved an accuracy of 84%.
+- **Model 2 (Transfer learning-based VGG16)** achieved an accuracy of 86%.
 
 Model 2 provides better results and is more suitable for this dataset due to the benefits of transfer learning. The pre-trained VGG16 model allows the network to leverage previously learned features, resulting in improved performance for the plant disease classification task.
 
 ## Conclusion
-The **Model 2** is the better-performing model, and it is recommended for use in real-world applications based on its higher accuracy of 84% (Can be increased if trained for more epochs [around 15-20]). Model 1 can still serve as a baseline but does not perform as well as Model 2 on this dataset.
+The **Model 2** is the better-performing model, and it is recommended for use in real-world applications based on its higher accuracy of 86% (Can be increased if trained for more epochs [around 15-20]). Model 1 can still serve as a baseline but does not perform as well as Model 2 on this dataset.
 
